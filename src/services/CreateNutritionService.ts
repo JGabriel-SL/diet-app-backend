@@ -19,7 +19,7 @@ class CreateNutritionService {
             if (response.response && response.response.candidates) {
                 const jsonText = response.response.candidates[0]?.content.parts[0].text as string;
         
-                let jsonString = jsonText.replace(/```\w*\n/g, '').replace(/```\n/g, '').trim();
+                let jsonString = jsonText.replace(/```\w*\n/g, '').replace(/\n```/g, '').trim();
                 let jsonObject = JSON.parse(jsonString)
 
                 return { data: jsonObject };
